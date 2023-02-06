@@ -50,7 +50,7 @@ def snap(message):
     bot.send_message(chatId, "تم تحميل")   
 
 
-    logger.info("[✔] {} video downloaded".format(extract_video_id_from_url(message.text)))
+    logger.info("[✔] {} video downloaded".format(random))
 
   
             
