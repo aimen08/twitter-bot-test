@@ -2,7 +2,6 @@ import os
 import telebot
 from dotenv import load_dotenv
 from loguru import logger
-from  urllib.request import urlopen,Request
 from twitterScraper import *
 import uuid
 
@@ -41,24 +40,13 @@ def snap(message):
 
     link = getVideo(message.text)
     bot.send_chat_action(chatId, 'upload_video')
-    req = Request(
-    url=link,
-    headers={'User-Agent': 'Mozilla/5.0'}
-    )
-    data = urlopen(req).read()
-    bot.send_video(chatId,data)
+    bot.send_video(chatId,link)
     bot.send_message(chatId, "تم تحميل")   
 
 
     logger.info("[✔] {} video downloaded".format(random))
 
-  
-            
-   
-        
-
-    
-    
+      
 
 # bot.polling(non_stop=True)
 bot.infinity_polling(allowed_updates=telebot.util.update_types)
