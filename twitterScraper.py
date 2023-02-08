@@ -44,7 +44,7 @@ def getVideo(url):
         try:
             response = requests.post('https://twittermate.com/download.php', data=data, headers=headers, allow_redirects=False)                      
             soup = BeautifulSoup(response.content, 'html.parser')                  
-            link = soup.findAll('a',attrs={'class':'btn waves-effect waves-light light-blue darken-4'})[5]['href']
+            link = soup.findAll('a',attrs={'class':'btn waves-effect waves-light light-blue darken-4'})[4]['href']
             return link
 
         except Exception as e:
